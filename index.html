@@ -1,127 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miri – Psychotherapy Support Assistant</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psychotherapy Supervision Group | Delhi</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body { background-color: #f9fafb; font-family: system-ui, sans-serif; }
-    #chatbot {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 340px;
-      max-height: 480px;
-      display: none;
-      flex-direction: column;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      overflow: hidden;
-      z-index: 1000;
-    }
-    #chat-header {
-      background: #2563eb;
-      color: white;
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
-    }
-    #chat-messages {
-      flex: 1;
-      padding: 12px;
-      overflow-y: auto;
-      font-size: 15px;
-    }
-    .msg-user { text-align: right; margin: 6px 0; }
-    .msg-bot { text-align: left; color: #111827; margin: 6px 0; }
-    #chat-input { display: flex; border-top: 1px solid #ddd; }
-    #chat-input input {
-      flex: 1;
-      border: none;
-      padding: 10px;
-      font-size: 14px;
-    }
-    #chat-input button {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      cursor: pointer;
-    }
-    #chat-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 30px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 1001;
-    }
-  </style>
+  <script defer src="chat.js"></script>
 </head>
-<body>
-  <header class="bg-blue-600 text-white py-4 text-center shadow">
-    <h1 class="text-2xl font-semibold">Miri Therapy Support</h1>
-    <p class="text-sm">A safe, compassionate AI assistant — not a therapist.</p>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-indigo-700">Psychotherapy Supervision Group</h1>
+      <nav class="space-x-6 text-gray-600">
+        <a href="#about" class="hover:text-indigo-600">About</a>
+        <a href="#approach" class="hover:text-indigo-600">Supervision</a>
+        <a href="#facilitators" class="hover:text-indigo-600">Facilitators</a>
+        <a href="#contact" class="hover:text-indigo-600">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="max-w-2xl mx-auto py-10 text-center px-4">
-    <h2 class="text-xl font-semibold mb-3">Welcome</h2>
-    <p class="text-gray-700 mb-6">
-      Miri can help you with emotional reflection, mindfulness, and general guidance.
-      This chatbot is for support and information only — it’s not a replacement for professional therapy.
+  <!-- INTRO -->
+  <section id="about" class="container mx-auto text-center py-20 px-4">
+    <h2 class="text-4xl font-semibold mb-4 text-indigo-700">Collaborative Supervision for Practitioners</h2>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      This supervision group provides a reflective, collegial space for psychotherapists and counsellors to deepen clinical understanding and professional growth.
     </p>
-    <a href="https://calendly.com/" class="bg-blue-600 text-white px-4 py-2 rounded">Book a Session</a>
-  </main>
+  </section>
 
-  <!-- Chatbot -->
-  <button id="chat-toggle">💬</button>
-
-  <div id="chatbot">
-    <div id="chat-header">Miri – Support Chat</div>
-    <div id="chat-messages"></div>
-    <div id="chat-input">
-      <input type="text" id="user-input" placeholder="Type your message..." />
-      <button id="send-btn">Send</button>
+  <!-- SUPERVISION APPROACH -->
+  <section id="approach" class="bg-white py-16 px-4">
+    <div class="container mx-auto max-w-4xl">
+      <h3 class="text-3xl font-semibold mb-4 text-indigo-700">Supervision Approach</h3>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        The group emphasizes relational, integrative, and reflective practice models. Our supervision process draws upon psychodynamic and humanistic frameworks, 
+        offering a shared space for exploring clinical process, countertransference, and ethical dilemmas in practice.
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+        Meetings are conducted monthly in small groups, fostering peer reflection and mutual learning among practitioners from diverse therapeutic backgrounds.
+      </p>
     </div>
-  </div>
+  </section>
 
-  <script>
-    const chatbot = document.getElementById('chatbot');
-    const toggle = document.getElementById('chat-toggle');
-    const messages = document.getElementById('chat-messages');
-    const input = document.getElementById('user-input');
+  <!-- FACILITATORS -->
+  <section id="facilitators" class="bg-gray-100 py-16 px-4">
+    <div class="container mx-auto max-w-5xl text-center">
+      <h3 class="text-3xl font-semibold mb-8 text-indigo-700">Facilitators</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h4 class="font-semibold text-lg mb-2">Dr. [Name]</h4>
+          <p class="text-gray-700">Psychotherapist & Clinical Supervisor<br>
+          PhD, MPhil (Clinical Psychology)</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h4 class="font-semibold text-lg mb-2">[Name]</h4>
+          <p class="text-gray-700">Integrative Psychotherapist & Group Facilitator<br>
+          MA Counselling, Diploma in Supervision</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    toggle.onclick = () => chatbot.style.display = chatbot.style.display === 'none' ? 'flex' : 'none';
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 px-4 text-center">
+    <div class="container mx-auto max-w-3xl">
+      <h3 class="text-3xl font-semibold mb-4 text-indigo-700">Contact</h3>
+      <p class="text-gray-700 mb-2">To inquire about joining the group or future supervision batches, please email:</p>
+      <p class="text-indigo-600 font-medium">info@psychotherapysupervision.co.in</p>
+    </div>
+  </section>
 
-    async function sendMessage() {
-      const text = input.value.trim();
-      if (!text) return;
-      messages.innerHTML += `<div class='msg-user'><b>You:</b> ${text}</div>`;
-      input.value = '';
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text })
-      });
-      const data = await res.json();
-      const botReply = data.isCrisis
-        ? `<div class='msg-bot text-red-600'><b>Miri:</b> ${data.reply}<br><a href='${data.resources}' target='_blank'>Find Help</a></div>`
-        : `<div class='msg-bot'><b>Miri:</b> ${data.reply}</div>`;
-      messages.innerHTML += botReply;
-      messages.scrollTop = messages.scrollHeight;
-    }
+  <!-- CHATBOT SECTION -->
+  <section id="chat" class="bg-indigo-50 py-12 px-4">
+    <div class="container mx-auto max-w-md">
+      <h3 class="text-2xl font-semibold mb-4 text-indigo-700 text-center">Supervision Assistant</h3>
+      <p class="text-center text-gray-600 mb-4">Ask questions based on supervision content and site information.</p>
+      <div id="chatBox" class="border rounded-lg p-4 h-80 overflow-y-auto bg-white mb-3"></div>
+      <div class="flex">
+        <input id="userInput" type="text" placeholder="Ask about supervision..." class="flex-grow border p-2 rounded-l-lg">
+        <button id="sendBtn" class="bg-indigo-600 text-white px-4 rounded-r-lg hover:bg-indigo-700">Send</button>
+      </div>
+    </div>
+  </section>
 
-    document.getElementById('send-btn').onclick = sendMessage;
-    input.addEventListener('keypress', e => { if (e.key === 'Enter') sendMessage(); });
-  </script>
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 text-gray-300 text-center py-6 mt-8">
+    © 2025 Psychotherapy Supervision Group | Professional Peer Support in Delhi
+  </footer>
+
 </body>
 </html>
