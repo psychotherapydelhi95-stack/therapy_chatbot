@@ -1,96 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Psychotherapy Supervision Group | Delhi</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script defer src="chat.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Psychotherapy Supervision Chat Assistant</title>
+  <meta name="description" content="AI-assisted psychotherapy supervision resource for professionals." />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px 10px;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    header p {
+      color: #4b5563;
+      margin-top: 8px;
+    }
+
+    main.container {
+      width: 100%;
+      max-width: 700px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 25px;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+    }
+
+    .chat-box {
+      flex: 1;
+      overflow-y: auto;
+      border: 1px solid #e5e7eb;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: #f9fafb;
+      border-radius: 8px;
+    }
+
+    .user-message, .bot-message {
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      max-width: 80%;
+      line-height: 1.4;
+    }
+
+    .user-message {
+      background: #dbeafe;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+
+    .bot-message {
+      background: #f3f4f6;
+      align-self: flex-start;
+    }
+
+    .chat-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    #chat-input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      font-size: 1em;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9em;
+      padding: 15px;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body>
+  <div class="page">
+    <header>
+      <h1>Psychotherapy Supervision</h1>
+      <p>A resource for professionals in psychotherapy, counselling, and reflective supervision.</p>
+    </header>
 
-  <!-- HEADER -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-indigo-700">Psychotherapy Supervision Group</h1>
-      <nav class="space-x-6 text-gray-600">
-        <a href="#about" class="hover:text-indigo-600">About</a>
-        <a href="#approach" class="hover:text-indigo-600">Supervision</a>
-        <a href="#facilitators" class="hover:text-indigo-600">Facilitators</a>
-        <a href="#contact" class="hover:text-indigo-600">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- INTRO -->
-  <section id="about" class="container mx-auto text-center py-20 px-4">
-    <h2 class="text-4xl font-semibold mb-4 text-indigo-700">Collaborative Supervision for Practitioners</h2>
-    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-      This supervision group provides a reflective, collegial space for psychotherapists and counsellors to deepen clinical understanding and professional growth.
-    </p>
-  </section>
-
-  <!-- SUPERVISION APPROACH -->
-  <section id="approach" class="bg-white py-16 px-4">
-    <div class="container mx-auto max-w-4xl">
-      <h3 class="text-3xl font-semibold mb-4 text-indigo-700">Supervision Approach</h3>
-      <p class="text-gray-700 leading-relaxed mb-4">
-        The group emphasizes relational, integrative, and reflective practice models. Our supervision process draws upon psychodynamic and humanistic frameworks, 
-        offering a shared space for exploring clinical process, countertransference, and ethical dilemmas in practice.
-      </p>
-      <p class="text-gray-700 leading-relaxed">
-        Meetings are conducted monthly in small groups, fostering peer reflection and mutual learning among practitioners from diverse therapeutic backgrounds.
-      </p>
-    </div>
-  </section>
-
-  <!-- FACILITATORS -->
-  <section id="facilitators" class="bg-gray-100 py-16 px-4">
-    <div class="container mx-auto max-w-5xl text-center">
-      <h3 class="text-3xl font-semibold mb-8 text-indigo-700">Facilitators</h3>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h4 class="font-semibold text-lg mb-2">Dr. [Name]</h4>
-          <p class="text-gray-700">Psychotherapist & Clinical Supervisor<br>
-          PhD, MPhil (Clinical Psychology)</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h4 class="font-semibold text-lg mb-2">[Name]</h4>
-          <p class="text-gray-700">Integrative Psychotherapist & Group Facilitator<br>
-          MA Counselling, Diploma in Supervision</p>
+    <main class="container">
+      <!-- Chat Window -->
+      <div id="chat-box" class="chat-box">
+        <div class="bot-message">
+          👋 Welcome! I’m your Psychotherapy Supervision Assistant.<br>
+          Ask me about supervision models, ethical practice, reflective methods, or professional development.
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-16 px-4 text-center">
-    <div class="container mx-auto max-w-3xl">
-      <h3 class="text-3xl font-semibold mb-4 text-indigo-700">Contact</h3>
-      <p class="text-gray-700 mb-2">To inquire about joining the group or future supervision batches, please email:</p>
-      <p class="text-indigo-600 font-medium">info@psychotherapysupervision.co.in</p>
-    </div>
-  </section>
+      <!-- Chat Form -->
+      <form id="chat-form" class="chat-form">
+        <input 
+          type="text" 
+          id="chat-input" 
+          placeholder="Type your question here..." 
+          autocomplete="off" 
+          required 
+        />
+        <button type="submit">Send</button>
+      </form>
+    </main>
 
-  <!-- CHATBOT SECTION -->
-  <section id="chat" class="bg-indigo-50 py-12 px-4">
-    <div class="container mx-auto max-w-md">
-      <h3 class="text-2xl font-semibold mb-4 text-indigo-700 text-center">Supervision Assistant</h3>
-      <p class="text-center text-gray-600 mb-4">Ask questions based on supervision content and site information.</p>
-      <div id="chatBox" class="border rounded-lg p-4 h-80 overflow-y-auto bg-white mb-3"></div>
-      <div class="flex">
-        <input id="userInput" type="text" placeholder="Ask about supervision..." class="flex-grow border p-2 rounded-l-lg">
-        <button id="sendBtn" class="bg-indigo-600 text-white px-4 rounded-r-lg hover:bg-indigo-700">Send</button>
-      </div>
-    </div>
-  </section>
+    <footer>
+      © 2025 Psychotherapy Supervision Group.  
+      <a href="https://psychotherapysupervision.co.in" target="_blank">Main Site</a>
+    </footer>
+  </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-gray-800 text-gray-300 text-center py-6 mt-8">
-    © 2025 Psychotherapy Supervision Group | Professional Peer Support in Delhi
-  </footer>
-
-<script src="chat.js"></script>
+  <!-- Chatbot Script -->
+  <script src="chat.js"></script>
 </body>
 </html>
